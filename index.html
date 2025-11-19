@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MTS Al-Mukhsin · Demo PPDB</title>
+  <!-- Tailwind CDN biar cepat -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b bg-white/80 backdrop-blur sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="h-9 w-9 rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm font-bold">MTs</span>
+        <div class="leading-tight">
+          <p class="font-semibold text-sm sm:text-base">MTS Al-Mukhsin</p>
+          <p class="text-xs text-slate-500">Demo tampilan PPDB Online</p>
+        </div>
+      </div>
+      <nav class="hidden sm:flex gap-4 text-sm">
+        <a href="#beranda" class="hover:text-emerald-600">Beranda</a>
+        <a href="#ppdb" class="hover:text-emerald-600">PPDB</a>
+        <a href="#kontak" class="hover:text-emerald-600">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="beranda" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-sm font-semibold text-emerald-600 mb-2">Tahun Pelajaran 2025/2026</p>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+          Penerimaan Peserta Didik Baru<br>
+          <span class="text-emerald-600">MTS Al-Mukhsin</span>
+        </h1>
+        <p class="mt-4 text-sm sm:text-base text-slate-600">
+          Ini adalah <span class="font-semibold">demo tampilan web</span> 
+          yang diambil dari project Laravel. Versi full (dengan backend Laravel) 
+          sedang disiapkan di server PHP.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#ppdb" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">
+            Lihat Alur PPDB
+          </a>
+          <span class="text-xs sm:text-sm text-slate-500">
+            Dibuat sebagai demo di GitHub Pages.
+          </span>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-lg border p-6">
+        <p class="text-xs font-semibold text-emerald-600 mb-2">Quick Preview</p>
+        <div class="space-y-3 text-xs sm:text-sm">
+          <div class="flex justify-between">
+            <span>Formulir Online</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px]">Aktif</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Upload Berkas</span>
+            <span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px]">Demo</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Integrasi Google Sheet</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px]">Hanya di versi Laravel</span>
+          </div>
+        </div>
+        <p class="mt-4 text-[11px] text-slate-500">
+          Versi Laravel lengkap berjalan di server terpisah (PHP). 
+          Halaman ini hanya contoh tampilan yang di-host di GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seksi PPDB -->
+  <section id="ppdb" class="py-12 bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4">Alur Singkat PPDB Online</h2>
+      <ol class="space-y-3 text-sm sm:text-base text-slate-700 list-decimal list-inside">
+        <li>Calon siswa mengisi formulir pendaftaran online.</li>
+        <li>Data tersimpan di sistem (Laravel) dan direkap di Google Sheets.</li>
+        <li>Pihak sekolah melakukan verifikasi berkas dan konfirmasi via WhatsApp.</li>
+        <li>Pengumuman hasil seleksi disampaikan melalui web & grup resmi.</li>
+      </ol>
+      <p class="mt-4 text-xs text-slate-500">
+        Catatan: langkah-langkah ini berjalan di backend Laravel pada server utama, 
+        bukan di GitHub Pages.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="py-12 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4">Kontak Sekolah</h2>
+      <p class="text-sm sm:text-base text-slate-700">
+        Informasi lebih lanjut mengenai PPDB dapat diperoleh melalui:
+      </p>
+      <ul class="mt-3 text-sm text-slate-700 space-y-1">
+        <li>📱 WhatsApp Admin PPDB: 08xx-xxxx-xxxx</li>
+        <li>📍 Alamat: (isi alamat MTS Al-Mukhsin)</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="py-6 text-center text-xs text-slate-500 border-t bg-white">
+    Demo UI · MTS Al-Mukhsin · Dibuat dengan ❤ pakai GitHub Pages
+  </footer>
+</body>
+</html>
