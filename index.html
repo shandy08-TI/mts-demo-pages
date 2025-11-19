@@ -3,108 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MTS Al-Mukhsin · Demo PPDB</title>
-  <!-- Tailwind CDN biar cepat -->
+  <title>MTS Al-Mukhsin · PPDB Online</title>
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#AAB14A',   // hijau utama MTS
+            secondary: '#DADF7B', // kuning muda
+            accent: '#FACE8D',    // peach
+            dark: '#1F2933'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(15, 23, 42, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-slate-50 text-slate-800">
-  <header class="border-b bg-white/80 backdrop-blur sticky top-0 z-20">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="h-9 w-9 rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm font-bold">MTs</span>
+<body class="font-sans bg-gray-50 text-slate-800">
+
+  <!-- NAVBAR -->
+  <header class="fixed inset-x-0 top-0 z-30 border-b bg-white/90 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+      <!-- Logo + nama -->
+      <a href="#beranda" class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-white text-sm font-bold">
+          MTs
+        </div>
         <div class="leading-tight">
           <p class="font-semibold text-sm sm:text-base">MTS Al-Mukhsin</p>
-          <p class="text-xs text-slate-500">Demo tampilan PPDB Online</p>
+          <p class="text-[11px] text-slate-500">Madrasah Tsanawiyah</p>
         </div>
-      </div>
-      <nav class="hidden sm:flex gap-4 text-sm">
-        <a href="#beranda" class="hover:text-emerald-600">Beranda</a>
-        <a href="#ppdb" class="hover:text-emerald-600">PPDB</a>
-        <a href="#kontak" class="hover:text-emerald-600">Kontak</a>
+      </a>
+
+      <!-- Menu desktop -->
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#beranda" class="hover:text-primary transition">Beranda</a>
+        <a href="#tentang" class="hover:text-primary transition">Tentang Kami</a>
+        <a href="#program" class="hover:text-primary transition">Program</a>
+        <a href="#publikasi" class="hover:text-primary transition">Publikasi</a>
+        <a href="#lokasi" class="hover:text-primary transition">Lokasi</a>
+        <a href="#kontak" class="hover:text-primary transition">Kontak</a>
+        <a href="#ppdb" class="px-3 py-1 rounded-full bg-primary text-white font-semibold hover:bg-primary/90">
+          PPDB Online
+        </a>
       </nav>
+
+      <!-- Menu mobile (dummy) -->
+      <div class="md:hidden text-xs text-slate-500">
+        Menu
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="beranda" class="py-16 sm:py-20">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <p class="text-sm font-semibold text-emerald-600 mb-2">Tahun Pelajaran 2025/2026</p>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-          Penerimaan Peserta Didik Baru<br>
-          <span class="text-emerald-600">MTS Al-Mukhsin</span>
-        </h1>
-        <p class="mt-4 text-sm sm:text-base text-slate-600">
-          Ini adalah <span class="font-semibold">demo tampilan web</span> 
-          yang diambil dari project Laravel. Versi full (dengan backend Laravel) 
-          sedang disiapkan di server PHP.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#ppdb" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">
-            Lihat Alur PPDB
-          </a>
-          <span class="text-xs sm:text-sm text-slate-500">
-            Dibuat sebagai demo di GitHub Pages.
-          </span>
+  <main class="pt-16 sm:pt-20">
+
+    <!-- HERO / BERANDA -->
+    <section id="beranda" class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary/25 to-accent/25 pointer-events-none"></div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 grid gap-12 lg:grid-cols-[1.6fr,1.1fr] items-center">
+        <!-- Teks kiri -->
+        <div>
+          <p class="text-xs sm:text-sm font-semibold text-primary mb-2">
+            Tahun Pelajaran 2025/2026
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-dark">
+            Penerimaan Peserta Didik Baru<br>
+            <span class="text-primary">MTS Al-Mukhsin</span>
+          </h1>
+          <p class="mt-4 text-sm sm:text-base text-slate-700 max-w-xl">
+            Halaman ini adalah <span class="font-semibold">salinan tampilan (demo)</span> 
+            dari website utama MTS Al-Mukhsin. Versi lengkap dengan backend Laravel, 
+            autentikasi, dan integrasi Google Sheet berjalan di server PHP terpisah.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="#ppdb" class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-soft hover:bg-primary/90 transition">
+              Lihat Informasi PPDB
+            </a>
+            <a href="#publikasi" class="text-sm font-medium text-dark/80 hover:text-primary">
+              Lihat Berita & Kegiatan →
+            </a>
+          </div>
+
+          <div class="mt-5 flex flex-wrap gap-4 text-[11px] sm:text-xs text-slate-500">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-primary"></span>
+              <span>UI disusun seperti web Laravel utama</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <span>Backend hanya tersedia di server Laravel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu kanan -->
+        <div class="bg-white rounded-2xl shadow-soft border border-white/70 p-6 sm:p-7">
+          <p class="text-xs font-semibold text-primary mb-3 uppercase tracking-wide">
+            PPDB Online · Preview
+          </p>
+
+          <div class="space-y-4 text-sm">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-semibold text-dark">Formulir Pendaftaran</p>
+                <p class="text-xs text-slate-500">Pengisian data calon peserta didik baru</p>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-green-50 text-[11px] font-semibold text-green-700">
+                Aktif
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-semibold text-dark">Upload Berkas</p>
+                <p class="text-xs text-slate-500">Kartu keluarga, akta lahir, ijazah</p>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-amber-50 text-[11px] font-semibold text-amber-700">
+                Demo
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-semibold text-dark">Integrasi Google Sheet</p>
+                <p class="text-xs text-slate-500">Rekap otomatis untuk panitia PPDB</p>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-slate-100 text-[11px] font-semibold text-slate-700">
+                Hanya di versi Laravel
+              </span>
+            </div>
+          </div>
+
+          <p class="mt-5 text-[11px] text-slate-500 leading-relaxed">
+            Halaman ini hanya menampilkan tampilan (frontend) yang mirip 
+            dengan website utama. Proses simpan data, verifikasi, dan 
+            pengelolaan berkas tetap berjalan di aplikasi Laravel pada server utama.
+          </p>
         </div>
       </div>
-      <div class="bg-white rounded-2xl shadow-lg border p-6">
-        <p class="text-xs font-semibold text-emerald-600 mb-2">Quick Preview</p>
-        <div class="space-y-3 text-xs sm:text-sm">
-          <div class="flex justify-between">
-            <span>Formulir Online</span>
-            <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px]">Aktif</span>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section id="tentang" class="py-12 sm:py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h2 class="text-xl sm:text-2xl font-bold text-dark mb-3">
+            Tentang MTS Al-Mukhsin
+          </h2>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            MTS Al-Mukhsin merupakan lembaga pendidikan berbasis keislaman yang 
+            berkomitmen membentuk peserta didik berakhlak mulia, berprestasi, dan 
+            siap melanjutkan ke jenjang pendidikan berikutnya. Proses pembelajaran 
+            mengintegrasikan nilai-nilai agama dengan ilmu pengetahuan modern.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section id="program" class="py-12 sm:py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-dark">
+            Program & Keunggulan
+          </h2>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+          <div class="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
+            <p class="font-semibold text-dark mb-1">Program Tahfidz</p>
+            <p class="text-xs text-slate-600">
+              Pendampingan hafalan Al-Qur’an terstruktur dengan target juz tertentu per jenjang.
+            </p>
           </div>
-          <div class="flex justify-between">
-            <span>Upload Berkas</span>
-            <span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px]">Demo</span>
+          <div class="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
+            <p class="font-semibold text-dark mb-1">Pembinaan Akademik</p>
+            <p class="text-xs text-slate-600">
+              Penguatan mata pelajaran umum dan agama untuk persiapan ke Madrasah Aliyah / SMA favorit.
+            </p>
           </div>
-          <div class="flex justify-between">
-            <span>Integrasi Google Sheet</span>
-            <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px]">Hanya di versi Laravel</span>
+          <div class="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
+            <p class="font-semibold text-dark mb-1">Ekstrakurikuler</p>
+            <p class="text-xs text-slate-600">
+              Beragam kegiatan seperti pramuka, olahraga, dan seni islami untuk mengasah bakat peserta didik.
+            </p>
           </div>
         </div>
-        <p class="mt-4 text-[11px] text-slate-500">
-          Versi Laravel lengkap berjalan di server terpisah (PHP). 
-          Halaman ini hanya contoh tampilan yang di-host di GitHub Pages.
-        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Seksi PPDB -->
-  <section id="ppdb" class="py-12 bg-white border-t">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-xl sm:text-2xl font-bold mb-4">Alur Singkat PPDB Online</h2>
-      <ol class="space-y-3 text-sm sm:text-base text-slate-700 list-decimal list-inside">
-        <li>Calon siswa mengisi formulir pendaftaran online.</li>
-        <li>Data tersimpan di sistem (Laravel) dan direkap di Google Sheets.</li>
-        <li>Pihak sekolah melakukan verifikasi berkas dan konfirmasi via WhatsApp.</li>
-        <li>Pengumuman hasil seleksi disampaikan melalui web & grup resmi.</li>
-      </ol>
-      <p class="mt-4 text-xs text-slate-500">
-        Catatan: langkah-langkah ini berjalan di backend Laravel pada server utama, 
-        bukan di GitHub Pages.
-      </p>
-    </div>
-  </section>
+    <!-- PPDB SECTION -->
+    <section id="ppdb" class="py-12 sm:py-16 bg-white border-y">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+          <div class="md:w-7/12">
+            <h2 class="text-xl sm:text-2xl font-bold text-dark mb-3">
+              Alur Singkat PPDB Online
+            </h2>
+            <ol class="list-decimal list-inside space-y-2 text-sm sm:text-base text-slate-700">
+              <li>Calon siswa mengisi formulir pendaftaran online melalui website.</li>
+              <li>Data tersimpan di sistem Laravel dan direkap otomatis di Google Sheets panitia.</li>
+              <li>Pihak sekolah melakukan verifikasi berkas dan menghubungi calon siswa via WhatsApp.</li>
+              <li>Pengumuman hasil seleksi disampaikan melalui web dan grup resmi madrasah.</li>
+            </ol>
+            <p class="mt-3 text-xs text-slate-500">
+              Catatan: proses di atas berjalan di backend Laravel pada server utama, 
+              bukan di GitHub Pages ini.
+            </p>
+          </div>
 
-  <!-- Kontak -->
-  <section id="kontak" class="py-12 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-xl sm:text-2xl font-bold mb-4">Kontak Sekolah</h2>
-      <p class="text-sm sm:text-base text-slate-700">
-        Informasi lebih lanjut mengenai PPDB dapat diperoleh melalui:
-      </p>
-      <ul class="mt-3 text-sm text-slate-700 space-y-1">
-        <li>📱 WhatsApp Admin PPDB: 08xx-xxxx-xxxx</li>
-        <li>📍 Alamat: (isi alamat MTS Al-Mukhsin)</li>
-      </ul>
-    </div>
-  </section>
+          <div class="md:w-5/12 bg-gray-50 rounded-2xl border border-dashed border-primary/40 p-5 text-sm">
+            <p class="text-xs font-semibold text-primary uppercase tracking-wide mb-2">
+              Catatan teknis
+            </p>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Halaman ini dibuat sebagai <span class="font-semibold">salinan tampilan</span> 
+              dari project Laravel <em>MTS Al-Mukhsin</em> dan di-host di GitHub Pages 
+              agar dapat diakses dengan mudah oleh siapa saja, termasuk rekan developer 
+              yang hanya membutuhkan link preview tanpa setup PHP terlebih dahulu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer class="py-6 text-center text-xs text-slate-500 border-t bg-white">
-    Demo UI · MTS Al-Mukhsin · Dibuat dengan ❤ pakai GitHub Pages
+    <!-- PUBLIKASI -->
+    <section id="publikasi" class="py-12 sm:py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-xl sm:text-2xl font-bold text-dark">Berita & Publikasi</h2>
+          <span class="text-xs sm:text-sm text-primary cursor-default">Demo tampilan</span>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-3 text-sm">
+          <article class="bg-white rounded-xl border border-slate-100 p-4 shadow-sm">
+            <p class="text-[11px] text-slate-500 mb-1">Oktober 2025</p>
+            <h3 class="font-semibold text-dark mb-1 text-sm">
+              Kegiatan Masa Pengenalan Lingkungan Sekolah
+            </h3>
+            <p class="text-xs text-slate-600">
+              Pengenalan lingkungan madrasah bagi peserta didik baru dengan 
+              berbagai aktivitas edukatif dan islami.
+            </p>
+          </article>
+          <article class="bg-white rounded-xl border border-slate-100 p-4 shadow-sm">
+            <p class="text-[11px] text-slate-500 mb-1">September 2025</p>
+            <h3 class="font-semibold text-dark mb-1 text-sm">
+              Seminar Parenting Bersama Wali Santri
+            </h3>
+            <p class="text-xs text-slate-600">
+              Kolaborasi antara madrasah dan orang tua dalam membentuk karakter 
+              dan kedisiplinan belajar di rumah.
+            </p>
+          </article>
+          <article class="bg-white rounded-xl border border-slate-100 p-4 shadow-sm">
+            <p class="text-[11px] text-slate-500 mb-1">Agustus 2025</p>
+            <h3 class="font-semibold text-dark mb-1 text-sm">
+              Prestasi Siswa dalam Lomba Keagamaan
+            </h3>
+            <p class="text-xs text-slate-600">
+              Peserta didik MTS Al-Mukhsin meraih juara dalam lomba MTQ dan 
+              pidato tingkat kabupaten.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOKASI -->
+    <section id="lokasi" class="py-12 sm:py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold text-dark mb-3">
+            Lokasi Madrasah
+          </h2>
+          <p class="text-sm sm:text-base text-slate-700 mb-3">
+            MTS Al-Mukhsin berlokasi di:
+          </p>
+          <p class="text-sm text-slate-700">
+            <span class="font-semibold">[Isi alamat lengkap di sini]</span><br>
+            Kecamatan [•••], Kabupaten [•••], Provinsi [•••].
+          </p>
+          <p class="mt-3 text-xs text-slate-500">
+            Di website Laravel utama, bagian ini biasanya dilengkapi dengan 
+            embed peta interaktif (Google Maps).
+          </p>
+        </div>
+        <div class="bg-gray-100 rounded-2xl border border-dashed border-slate-300 flex items-center justify-center text-xs text-slate-500 px-4 text-center">
+          Placeholder peta.  
+          <br>Di versi Laravel, area ini dapat diganti dengan iframe Google Maps.
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="py-12 sm:py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-xl sm:text-2xl font-bold text-dark mb-3">
+          Kontak Sekolah
+        </h2>
+        <p class="text-sm sm:text-base text-slate-700">
+          Informasi lebih lanjut mengenai PPDB dapat diperoleh melalui:
+        </p>
+        <ul class="mt-3 text-sm text-slate-700 space-y-1">
+          <li>📱 WhatsApp Admin PPDB: <span class="font-semibold">08xx-xxxx-xxxx</span></li>
+          <li>📍 Alamat: (isi alamat MTS Al-Mukhsin)</li>
+          <li>🌐 Website utama: <span class="text-primary">[link Laravel / domain utama]</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-5 border-t bg-white text-center text-[11px] text-slate-500">
+    Demo UI · MTS Al-Mukhsin &mdash; Tampilan ini meniru struktur web Laravel utama
+    dan di-host sebagai preview di GitHub Pages.
   </footer>
+
 </body>
 </html>
